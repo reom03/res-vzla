@@ -1,0 +1,7 @@
+{
+  "name": "res-vzla",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
