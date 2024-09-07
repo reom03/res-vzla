@@ -1,0 +1,26 @@
+<app-header></app-header>
+<ion-content [fullscreen]="false">
+  <div id="container" class="ion-text-center">
+    <ion-breadcrumbs>
+      <ion-breadcrumb href="/folder">Nacional</ion-breadcrumb>
+    </ion-breadcrumbs>
+    <ion-text color="secondary">
+      <h2><strong class="capitalize">{{ stateData.name }}</strong></h2>
+    </ion-text>
+    <app-graphic [data]="graphicData" [totals]="stateData.totals"></app-graphic>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          <ion-text color="secondary">
+            <h2><strong class="capitalize">Municipios</strong></h2>
+          </ion-text>
+        </ion-label>
+      </ion-list-header>
+      @for (state of stateData.muniList; track state.id){
+        <ion-item (click)="goToMuni(state.id)">
+          <ion-label>{{ state.name }}</ion-label>
+        </ion-item>
+      }
+    </ion-list>
+  </div>
+</ion-content>

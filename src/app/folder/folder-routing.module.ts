@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { FolderPage } from './folder.page';
+import {NgApexchartsModule} from "ng-apexcharts";
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), NgApexchartsModule],
   exports: [RouterModule],
 })
 export class FolderPageRoutingModule {}

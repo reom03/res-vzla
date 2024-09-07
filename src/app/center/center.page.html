@@ -1,0 +1,32 @@
+
+<app-header></app-header>
+<ion-content [fullscreen]="false">
+  <div id="container" class="ion-text-center">
+    <ion-breadcrumbs>
+      <ion-breadcrumb href="/folder">Nacional</ion-breadcrumb>
+      <ion-breadcrumb href="/state/{{stateId}}">Estado</ion-breadcrumb>
+      <ion-breadcrumb href="/municipality/{{stateId}}/{{muniId}}">Municipio</ion-breadcrumb>
+      <ion-breadcrumb href="/parrish/{{stateId}}/{{muniId}}/{{parrishId}}">Parroquia</ion-breadcrumb>
+      <ion-breadcrumb disabled="disabled">Centro</ion-breadcrumb>
+
+    </ion-breadcrumbs>
+    <ion-text color="secondary">
+      <h2><strong class="capitalize">Centro: {{ centerData.id | centers }}</strong></h2>
+    </ion-text>
+    <app-graphic [data]="graphicData"  [totals]="centerData.totals"></app-graphic>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          <ion-text color="secondary">
+            <h2><strong class="capitalize">Mesas</strong></h2>
+          </ion-text>
+        </ion-label>
+      </ion-list-header>
+      @for (state of centerData.tableList; track state.id){
+        <ion-item (click)="goToTable(state.id)">
+          <ion-label>Mesa: {{ state.id }}</ion-label>
+        </ion-item>
+      }
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,17 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title *ngIf="totals.digitalActs">Actas Digitalizadas: {{totals.digitalActs}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div id="chart" class="w-100">
+      <apx-chart *ngIf="chartOptions"
+                 [series]="chartOptions.series"
+                 [chart]="chartOptions.chart"
+                 [labels]="chartOptions.labels"
+                 [legend]="chartOptions.legends"
+                 [fill]="chartOptions.fills"
+      ></apx-chart>
+      <app-totals [totals]="totals"></app-totals>
+    </div>
+  </ion-card-content>
+</ion-card>

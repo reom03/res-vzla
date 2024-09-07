@@ -1,0 +1,66 @@
+<app-header></app-header>
+<ion-content [fullscreen]="false">
+  <div id="container" class="ion-text-center">
+    <ion-breadcrumbs>
+      <ion-breadcrumb href="/folder">Nacional</ion-breadcrumb>
+      <ion-breadcrumb href="/state/{{stateId}}">Estado</ion-breadcrumb>
+      <ion-breadcrumb href="/municipality/{{stateId}}/{{muniId}}">Municipio</ion-breadcrumb>
+      <ion-breadcrumb href="/parrish/{{stateId}}/{{muniId}}/{{parrishId}}">Parroquia</ion-breadcrumb>
+      <ion-breadcrumb href="/center/{{stateId}}/{{muniId}}/{{parrishId}}/{{centerId}}">Centro</ion-breadcrumb>
+      <ion-breadcrumb disabled="disabled">Mesa</ion-breadcrumb>
+    </ion-breadcrumbs>
+    <ion-text color="secondary">
+      <h2><strong class="capitalize">Mesa {{ tableData.id }}</strong></h2>
+    </ion-text>
+    <app-graphic [data]="graphicData" [totals]="tableData.totals"></app-graphic>
+    <ion-button (click)="openImage(tableData.url)" >Ver Acta</ion-button>
+    <ion-button (click)="downloadAct(tableData.url)" >
+      <ion-icon name="download-outline"></ion-icon>
+    </ion-button>
+    <ion-progress-bar *ngIf="downloading" type="indeterminate"></ion-progress-bar>
+
+    <ion-list>
+      <ion-list-header>Votos</ion-list-header>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.eg }}</ion-label>
+        <ion-label>{{ "eg" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.nm }}</ion-label>
+        <ion-label>{{ "nm" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.lm }}</ion-label>
+        <ion-label>{{ "lm" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.jabe }}</ion-label>
+        <ion-label>{{ "jabe" | candidate}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.jobbr }}</ion-label>
+        <ion-label>{{ "jobbr" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.ae }}</ion-label>
+        <ion-label>{{ "ae" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.cf }}</ion-label>
+        <ion-label>{{ "cf" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.dc }}</ion-label>
+        <ion-label>{{ "dc" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.em }}</ion-label>
+        <ion-label>{{ "em" | candidate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="end">{{ tableData.bera }}</ion-label>
+        <ion-label>{{ "bera" | candidate }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

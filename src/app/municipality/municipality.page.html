@@ -1,0 +1,30 @@
+
+<app-header></app-header>
+<ion-content [fullscreen]="false">
+  <div id="container" class="ion-text-center">
+    <ion-breadcrumbs>
+      <ion-breadcrumb href="/folder">Nacional</ion-breadcrumb>
+      <ion-breadcrumb href="/state/{{stateId}}">Estado</ion-breadcrumb>
+      <ion-breadcrumb disabled="disabled">Municipio</ion-breadcrumb>
+
+    </ion-breadcrumbs>
+    <ion-text color="secondary">
+      <h2><strong class="capitalize">{{ muniData.name }}</strong></h2>
+    </ion-text>
+    <app-graphic [data]="graphicData"  [totals]="muniData.totals"></app-graphic>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          <ion-text color="secondary">
+            <h2><strong class="capitalize">Parroquias</strong></h2>
+          </ion-text>
+        </ion-label>
+      </ion-list-header>
+      @for (state of muniData.parrishList; track state.id){
+        <ion-item (click)="goToParish(state.id)">
+          <ion-label>{{ state.name }}</ion-label>
+        </ion-item>
+      }
+    </ion-list>
+  </div>
+</ion-content>
